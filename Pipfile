@@ -11,6 +11,7 @@ djangorestframework-simplejwt = "==5.4.0"
 shortuuid = "*"
 phonenumbers = "*"
 pycountry = "*"
+gunicorn = "*"
 
 [dev-packages]
 

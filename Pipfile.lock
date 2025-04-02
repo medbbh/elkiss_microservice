@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4442868c1453cbb8cbd49532e8e323c4234c9607f19708024e99ab10e9e01d53"
+            "sha256": "7c0910cb4e29d78a4e9b8caa6ffdc06f226942dab799d6f80f7d92d53d4a4e9c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -60,13 +60,30 @@
             "markers": "python_version >= '3.9'",
             "version": "==5.4.0"
         },
-        "phonenumbers": {
+        "gunicorn": {
             "hashes": [
-                "sha256:094a6f728e3c2b1906df4494a480743a3c797320f721f2b53f1400fd4d8ed5f5",
-                "sha256:f566eddf6219d9af9b4aad454ba411a1df565d13b875a490fd33d1d202c1148d"
+                "sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d",
+                "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec"
             ],
             "index": "pypi",
-            "version": "==9.0.0"
+            "markers": "python_version >= '3.7'",
+            "version": "==23.0.0"
+        },
+        "packaging": {
+            "hashes": [
+                "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759",
+                "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==24.2"
+        },
+        "phonenumbers": {
+            "hashes": [
+                "sha256:dbcec6bdfdf3973f60b81dc0fcac3f7b1638f877ac42da4d7b46724ed413e2b9",
+                "sha256:f590ee2b729bdd9873ca2d52989466add14c9953b48805c0aeb408348d4d6224"
+            ],
+            "index": "pypi",
+            "version": "==9.0.2"
         },
         "pycountry": {
             "hashes": [
@@ -104,11 +121,11 @@
         },
         "tzdata": {
             "hashes": [
-                "sha256:24894909e88cdb28bd1636c6887801df64cb485bd593f2fd83ef29075a81d694",
-                "sha256:7e127113816800496f027041c570f50bcd464a020098a3b6b199517772303639"
+                "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8",
+                "sha256:b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9"
             ],
             "markers": "sys_platform == 'win32'",
-            "version": "==2025.1"
+            "version": "==2025.2"
         }
     },
     "develop": {}
