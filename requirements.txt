@@ -8,4 +8,4 @@ pycountry
 gunicorn
 django-environ==0.12.0
 psycopg2-binary
-django-rest-swagger
+drf-spectacular
