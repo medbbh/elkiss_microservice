@@ -37,9 +37,3 @@ class LogoutView(APIView):
 # Custom Login View
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
-
-
-class CountryListView(APIView):
-    def get(self, request):
-        countries = [{"name": c.name, "iso_code": c.alpha_2} for c in pycountry.countries]
-        return Response({"countries": countries})

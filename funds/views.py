@@ -69,7 +69,7 @@ class FundRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 class DonateAPIView(APIView):
     """
-    POST /api/transactions/donate -> user donates to a cagnotte
+    POST /api/donate -> user donates to a cagnotte
     {
       "cagnotte_id": "uuid",
       "amount": 50.00,

@@ -17,7 +17,7 @@ class UserTransactionsAPIView(generics.ListAPIView):
 
 class FundTransactionsAPIView(generics.ListAPIView):
     """
-    GET /api/cagnottes/{id}/transactions -> list transactions for that cagnotte
+    GET /api/cagnottes/{id}/transactions -> list transactions for cagnotte
     """
     serializer_class = TransactionSerializer
     permission_classes = [permissions.IsAuthenticated]

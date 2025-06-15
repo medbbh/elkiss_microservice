@@ -4,29 +4,22 @@ from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from users.models import CustomUser
-from users.validators import validate_phone_number
 from django.core.exceptions import ValidationError
 
 User = get_user_model()
 
-COUNTRY_CHOICES = [(c.alpha_2, c.name) for c in pycountry.countries]
 
 class RegisterSerializer(serializers.ModelSerializer):
-    country = serializers.ChoiceField(choices=COUNTRY_CHOICES)
     password = serializers.CharField(write_only=True, min_length=6)
     confirm_password = serializers.CharField(write_only=True, min_length=6)
 
     class Meta:
         model = CustomUser
-        fields = ["id", "country", "phone_number", "name", "password", "confirm_password"]
+        fields = ["id", "phone_number", "name", "password", "confirm_password"]
 
     def validate(self, data):
         if data["password"] != data["confirm_password"]:
             raise serializers.ValidationError({"confirm_password": "Passwords do not match."})
-        try:
-            validate_phone_number(data["phone_number"], data["country"])
-        except ValidationError as e:
-            raise serializers.ValidationError(e.message_dict)
         return data
 
     def create(self, validated_data):
@@ -42,7 +35,6 @@ class RegisterSerializer(serializers.ModelSerializer):
             return instance
         # Otherwise, fall back to the default behavior.
         return super().to_representation(instance)
-
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):

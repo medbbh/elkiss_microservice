@@ -32,6 +32,7 @@ env = environ.Env(
 # Read the .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
+print(f"DEBUG: DATABASE_URL = {os.environ.get('DATABASE_URL', 'NOT FOUND')}")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
