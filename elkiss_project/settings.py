@@ -177,3 +177,7 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION": True,  # Blacklist old refresh tokens
     "AUTH_HEADER_TYPES": ("Bearer",),  # Use 'Bearer <token>' in headers
 }
+
+# Static files configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
