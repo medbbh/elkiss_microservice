@@ -34,7 +34,12 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['elkiss.onrender.com','127.0.0.1','localhost']
+print(f"Raw ALLOWED_HOSTS from .env: '{env('ALLOWED_HOSTS')}'")
+print(f"Type: {type(env('ALLOWED_HOSTS'))}")
+
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+print(f"ALLOWED_HOSTS after env.list(): {ALLOWED_HOSTS}")
+print(f"Length: {len(ALLOWED_HOSTS)}")
 
 # Application definition
 
