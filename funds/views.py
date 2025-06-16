@@ -5,6 +5,7 @@ from transactions.models import Transaction
 from transactions.serializers import TransactionSerializer
 from .models import Fund
 from .serializers import FundSerializer
+from decimal import Decimal
 
 
 class FundListCreateAPIView(generics.ListCreateAPIView):
@@ -87,7 +88,7 @@ class DonateAPIView(APIView):
         # Basic validations
         if not cagnotte_id:
             return Response({"detail": "cagnotte_id is required"}, status=400)
-        if float(amount) < 5:
+        if Decimal(amount) < 5:
             return Response({"detail": "Minimum donation is 5 MRU"}, status=400)
         
         try:
@@ -96,19 +97,22 @@ class DonateAPIView(APIView):
             return Response({"detail": "Fund not found or not Open"}, status=404)
         
         # Check user solde
-        if user.solde < float(amount):
+        if user.solde < Decimal(amount):
             return Response({"detail": "Insufficient funds"}, status=400)
         
-        # Calculate tax (1% example)
-        tax = float(amount) * 0.01
-        total_amount = float(amount) + tax
+        # Convert amount to Decimal
+        amount_decimal = Decimal(str(amount))
+
+        # Calculate tax (1% example) and total amount
+        tax = amount_decimal * Decimal('0.01')
+        total_amount = amount_decimal + tax
         
         # Deduct from user solde
         user.solde -= total_amount
         user.save()
         
         # Update cagnotte
-        cagnotte.current_amount += float(amount)
+        cagnotte.current_amount += Decimal(amount)
         cagnotte.total_participants += 1
         cagnotte.save()
 

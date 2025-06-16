@@ -24,8 +24,8 @@ class Fund(models.Model):
         on_delete=models.CASCADE,
         related_name='funds')
     phone_beneficiary = models.IntegerField()
-    target_amount = models.FloatField()
-    current_amount = models.FloatField(default=0.0)
+    target_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    current_amount = models.DecimalField(max_digits=10, decimal_places=2,default=0.0)
     total_participants = models.IntegerField(default=0)
     description = models.TextField()
     deadline = models.DateField()
@@ -34,7 +34,7 @@ class Fund(models.Model):
     updated_at = models.DateField(auto_now=True)
 
     def __str__(self):
-        return f'{self.name} - {self.onwer}'
+        return f'{self.name} - {self.owner}'
     
     def add_donation(self, amount):
         """Method to add donations and update current amount."""
